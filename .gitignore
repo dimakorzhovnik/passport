@@ -1,0 +1,27 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+coverage
+
+# Dependency directories
+node_modules
+build
+dist
+
+# Optional npm cache directory
+.npm
+
+# Prod Bundle
+*.xml
+*.iml
+yarn.lock
+
+.idea
+.vscode
+
+.parcel-cache
+
+yarn-debug.log*
+yarn-error.log*
+src/.DS_Store

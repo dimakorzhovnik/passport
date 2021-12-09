@@ -145,19 +145,19 @@ h1, h2, h3, h4 {
   float:right;
 }
 .atomIcon {
-  background-image:url(assets/cosmos-atom-logo.png) !important;
+  background-image:url(../assets/cosmos-atom-logo.png) !important;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
 }
 .etheriumIcon {
-  background-image:url(assets/Ethereum-ETH-icon.png) !important;
+  background-image:url(../assets/Ethereum-ETH-icon.png) !important;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
 }
 .bostromIcon {
-  background-image:url(assets/cosmos-atom-logo.png) !important;
+  background-image:url(../assets/cosmos-atom-logo.png) !important;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
