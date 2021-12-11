@@ -39,7 +39,7 @@ const getNoteFromAdd = (addrr) => {
       arrNote.push(obj);
       duration = "16n";
     } else {
-      duration = "32n";
+      duration = "8n";
     }
   });
   return arrNote;
