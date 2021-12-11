@@ -35,8 +35,7 @@ const getNoteFromAdd = (addrr) => {
   arrStr.forEach((item) => {
     let obj;
     if (note[item] !== "sustein") {
-      noteItem = `${note[item]}3`;
-      obj = { note: noteItem, duration };
+      obj = { note: note[item], duration };
       arrNote.push(obj);
       duration = "16n";
     } else {
