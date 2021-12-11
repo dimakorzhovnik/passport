@@ -1,14 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Tone from "tone";
 
 import { MusicalAddress } from "./components";
+import { note } from "./utils/librarySound";
+
+const synth = new Tone.Synth().toDestination();
+const amSynth = new Tone.AMSynth().toDestination();
+const fmSynth = new Tone.FMSynth().toDestination();
+
+const testAddrr = "bostrom1p0r7uxstcw8ehrwuj4kn8qzzs0yypsjwxgd445";
+const testArr = [
+  {
+    note: "C3",
+    duration: "16n",
+  },
+  {
+    note: "E3",
+    duration: "16n",
+  },
+  {
+    note: "C3",
+    duration: "16n",
+  },
+  {
+    note: "G3",
+    duration: "16n",
+  },
+];
+
+const getNoteFromAdd = (addrr) => {
+  const arrStr = Array.from(addrr.slice(8));
+  let duration = "16n";
+  const arrNote = [];
+  arrStr.forEach((item) => {
+    let obj;
+    if (note[item] !== "sustein") {
+      noteItem = `${note[item]}3`;
+      obj = { note: noteItem, duration };
+      arrNote.push(obj);
+      duration = "16n";
+    } else {
+      duration = "32n";
+    }
+  });
+  return arrNote;
+};
 
 function App() {
-  const synth = new Tone.Synth().toDestination();
-
-  //play a middle 'C' for the duration of an 8th note
   const onClickMusicalAddress = () => {
-    synth.triggerAttackRelease("C4", "8n");
+    const arrNote = getNoteFromAdd(testAddrr);
+    console.log(`arrNote`, arrNote);
+    makeSound(arrNote);
+  };
+
+  const makeSound = (arrNote) => {
+    let cout = 0;
+    const now = Tone.now();
+
+    arrNote.forEach((item) => {
+        synth.triggerAttackRelease(item.note, item.duration, now + cout);
+        cout += 0.2;
+    });
   };
 
   return (
