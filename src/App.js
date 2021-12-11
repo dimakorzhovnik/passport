@@ -33,13 +33,13 @@ const getNoteFromAdd = (addrr) => {
   let duration = "16n";
   const arrNote = [];
   arrStr.forEach((item) => {
-    let obj;
-    if (note[item] !== "sustein") {
-      obj = { note: note[item], duration };
-      arrNote.push(obj);
-      duration = "16n";
-    } else {
+    if (note[item] === "sustein") {
       duration = "8n";
+    }
+    const obj = { note: note[item], duration };
+    arrNote.push(obj);
+    if (note[item] !== "sustein") {
+      duration = "16n";
     }
   });
   return arrNote;
@@ -57,8 +57,13 @@ function App() {
     const now = Tone.now();
 
     arrNote.forEach((item) => {
-        synth.triggerAttackRelease(item.note, item.duration, now + cout);
+      if (item.note !== "sustein") {
+        const time = now + cout;
+        synth.triggerAttackRelease(item.note, item.duration, time);
         cout += 0.2;
+      } else {
+        cout += 0.2;
+      }
     });
   };
 
